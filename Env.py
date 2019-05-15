@@ -311,3 +311,11 @@ class Env:
 
     def sample_action(self):
         return random.randint(0, Env.ACTION_N+1)
+
+    def sample_valid_action(self):
+        action_num = self.sample_action()
+        action = Env.possible_actions[action_num]
+        while (not self.valid_action(action)) and self.can_continue():
+            action_num = self.sample_action()
+            action = Env.possible_actions[action_num]
+        return action_num
