@@ -203,6 +203,7 @@ class Env:
 
     def reset(self):
         self.set()
+        return self.board
 
     def boardify(self):
 
