@@ -311,7 +311,7 @@ class Env:
         return self.board, reward, done
 
     def sample_action(self):
-        return random.randint(0, Env.ACTION_N+1)
+        return random.randint(0, Env.ACTION_N)
 
     def sample_valid_action(self):
         action_num = self.sample_action()
