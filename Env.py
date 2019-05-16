@@ -196,10 +196,10 @@ class Env:
     ACTION_N = len(possible_actions)
 
     def __init__(self):
-        self.board = Env.INIT_STATE
+        self.board = np.copy(Env.INIT_STATE)
 
     def set(self, board_state=INIT_STATE):
-        self.board = board_state
+        self.board = np.copy(board_state)
 
     def reset(self):
         self.set()
@@ -306,12 +306,18 @@ class Env:
         action = Env.possible_actions[action_num]
         done = False
         reward = self.act(action)
+
         if reward == 0:
             done = not(self.can_continue())
+
+        if self.get_count() == 1:
+            # game solved
+            done = True
+
         return self.board, reward, done
 
     def sample_action(self):
-        return random.randint(0, Env.ACTION_N)
+        return random.randint(0, Env.ACTION_N-1)
 
     def sample_valid_action(self):
         action_num = self.sample_action()
