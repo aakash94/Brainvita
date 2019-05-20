@@ -326,3 +326,10 @@ class Env:
             action_num = self.sample_action()
             action = Env.possible_actions[action_num]
         return action_num
+
+    def get_valid_actions(self):
+        action_numbers = []
+        for i in range(Env.ACTION_N):
+            if self.valid_action(Env.possible_actions[i]):
+                action_numbers.append(i)
+        return action_numbers
