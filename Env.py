@@ -153,9 +153,9 @@ class Env:
         49: Action(row=4, col=1, move=Move.NORTH),
 
         50: Action(row=4, col=2, move=Move.EAST),
-        51: Action(row=4, col=2, move=Move.SOUTH),
-        52: Action(row=4, col=2, move=Move.SOUTH),
-        53: Action(row=4, col=2, move=Move.EAST),
+        51: Action(row=4, col=2, move=Move.NORTH),
+        52: Action(row=4, col=2, move=Move.WEST),
+        53: Action(row=4, col=2, move=Move.SOUTH),
 
         54: Action(row=4, col=3, move=Move.EAST),
         55: Action(row=4, col=3, move=Move.NORTH),
